@@ -3,3 +3,10 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+body  
+  div(class='message-board')
+  for msg of #{messages}
+    div(class='card')
+      div(class='text') #{msg.text}
+      div(class='user') #{msg.user}
+      div(class='date') #{msg.added}

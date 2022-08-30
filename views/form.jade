@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+body
+   h1 Add a message!
+   form(method="POST" action="/new")
+      input(name='messageText' type='text' placeholder='Write your message here!' )
+      input(name='messageUser' type='text' placeholder='username')
+      button(type='button') Submit!
