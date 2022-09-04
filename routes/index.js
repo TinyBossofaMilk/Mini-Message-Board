@@ -16,17 +16,16 @@ const messages = [
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // res.render('index', { title: 'Express' });
   res.render('index', { title: "Mini Messageboard", messages: messages });
 });
 
-router.post('/new', function(req, res, next){
-  res.render('form',{})
-  const messageText = req.body.messageText;
-  const messageUser = req.body.messageUser;
-  messages.push({text: messageText, user: messageUser, added: new Date()});
-
-  res.redirect('/');
+router.get('/new', function(req, res, next){
+  res.render('form',{});
 });
+
+router.post('/new', function(req, res, next) {
+  messages.push({text: req.body.text, user: req.body.user, added: new Date()});
+  res.redirect('/');
+})
 
 module.exports = router;

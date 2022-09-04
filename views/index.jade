@@ -3,10 +3,10 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-body  
-  div(class='message-board')
-  for msg of #{messages}
-    div(class='card')
-      div(class='text') #{msg.text}
-      div(class='user') #{msg.user}
-      div(class='date') #{msg.added}
+  div.message-board
+    each message in messages 
+      div.message-card 
+        h2= message.title
+        p.description= message.text
+        p.username= message.user
+        p.date= message.date
